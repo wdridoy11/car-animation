@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.loading-screen {
+      /* position: fixed; */
+      /* top: 0; */
+      /* left: 0; */
+      /* width: 100%; */
+      /* height: 100%; */
+      /* background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%); */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    /* Animation container for the delivery car */
+    .delivery-animation {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    /* The mascot delivery car that moves across screen */
+    .delivery-car {
+      position: absolute;
+      width: 280px;
+      height: auto;
+      /* Start position: completely off-screen left */
+      left: -300px;
+      top: 50%;
+      transform: translateY(-50%);
+      /* Animation: drive across screen in 3s, repeat infinitely */
+      animation: driveAcross 8s linear infinite;
+    }
+
+    /* Keyframe animation: car enters from left, exits right, seamlessly loops */
+    @keyframes driveAcross {
+      0% {
+        left: -300px; /* Start completely off-screen left */
+      }
+      100% {
+        left: 100%; /* End completely off-screen right */
+      }
+    }
+
+    /* Optional: Add a subtle road/ground line */
+    .road {
+      position: absolute;
+      bottom: 20%;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #e0e0e0;
+    }
+
+    /* Loading text below the animation */
+    .loading-text {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .loading-text h2 {
+      color: #e63946;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .loading-text p {
+      color: #666;
+      font-size: 16px;
+    }
+
+    /* Animated dots for "Loading..." effect */
+    .dots {
+      display: inline-block;
+    }
+
+    .dots span {
+      /* animation: blink 1.4s infinite; */
+      animation: blink 5s infinite;
+      opacity: 0;
+    }
+
+    .dots span:nth-child(1) {
+      /* animation-delay: 5s; */
+      animation-delay: 0s;
+    }
+
+    .dots span:nth-child(2) {
+      /* animation-delay: 5s; */
+      animation-delay: 0.2s;
+    }
+
+    .dots span:nth-child(3) {
+      animation-delay: 0.4s;
+      /* animation-delay: 5s; */
+    }
+
+    @keyframes blink {
+      0%, 60%, 100% {
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+      .delivery-car {
+        width: 200px;
+        left: -220px;
+      }
+
+      .loading-text h2 {
+        font-size: 20px;
+      }
+
+      .loading-text p {
+        font-size: 14px;
+      }
+    }

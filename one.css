@@ -1,0 +1,292 @@
+    /* Container for all animation examples */
+    .animations-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #e63946;
+      margin-bottom: 40px;
+      font-size: 32px;
+    }
+
+    /* Individual animation showcase card */
+    .animation-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .animation-card h2 {
+      color: #e63946;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .animation-card p {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    /* Common loading screen styles */
+    .loading-screen {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .delivery-animation {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .road {
+      position: absolute;
+      bottom: 20%;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #e0e0e0;
+    }
+
+    .loading-text {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .loading-text h3 {
+      color: #e63946;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .loading-text span {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* ANIMATION 1: Classic Left-to-Right Drive */
+    .delivery-car-1 {
+      position: absolute;
+      width: 280px;
+      height: auto;
+      left: -300px;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: driveAcross1 3s linear infinite;
+    }
+
+    @keyframes driveAcross1 {
+      0% { left: -300px; }
+      100% { left: 100%; }
+    }
+
+    /* ANIMATION 2: Bounce Drive (with vertical bounce) */
+    .delivery-car-2 {
+      position: absolute;
+      width: 280px;
+      height: auto;
+      left: -300px;
+      top: 50%;
+      animation: bounceAndDrive 3.5s ease-in-out infinite;
+    }
+
+    @keyframes bounceAndDrive {
+      0% { 
+        left: -300px; 
+        transform: translateY(-50%) translateY(0px);
+      }
+      25% { 
+        transform: translateY(-50%) translateY(-15px);
+      }
+      50% { 
+        left: 50%;
+        transform: translateY(-50%) translateY(0px);
+      }
+      75% { 
+        transform: translateY(-50%) translateY(-15px);
+      }
+      100% { 
+        left: 100%; 
+        transform: translateY(-50%) translateY(0px);
+      }
+    }
+
+    /* ANIMATION 3: Zoom In from Distance */
+    .delivery-car-3 {
+      position: absolute;
+      width: 80px;
+      height: auto;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0.3);
+      animation: zoomInDrive 4s ease-out infinite;
+    }
+
+    @keyframes zoomInDrive {
+      0% { 
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0.5;
+      }
+      40% { 
+        opacity: 1;
+      }
+      70% { 
+        transform: translate(-50%, -50%) scale(1);
+      }
+      85% {
+        transform: translate(30%, -50%) scale(1);
+      }
+      100% { 
+        transform: translate(150%, -50%) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* ANIMATION 4: Figure-8 Loop */
+    .delivery-car-4 {
+      position: absolute;
+      width: 200px;
+      height: auto;
+      animation: figureEight 6s ease-in-out infinite;
+    }
+
+    @keyframes figureEight {
+      0% { 
+        left: 10%; 
+        top: 30%; 
+        transform: rotate(0deg);
+      }
+      25% { 
+        left: 70%; 
+        top: 30%; 
+        transform: rotate(90deg);
+      }
+      50% { 
+        left: 50%; 
+        top: 50%; 
+        transform: rotate(180deg);
+      }
+      75% { 
+        left: 30%; 
+        top: 70%; 
+        transform: rotate(270deg);
+      }
+      100% { 
+        left: 10%; 
+        top: 30%; 
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ANIMATION 5: Pulse & Rotate in Center */
+    .delivery-car-5 {
+      position: absolute;
+      width: 250px;
+      height: auto;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulseRotate 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulseRotate {
+      0%, 100% { 
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+      }
+      25% { 
+        transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+      }
+      50% { 
+        transform: translate(-50%, -50%) scale(0.95) rotate(0deg);
+      }
+      75% { 
+        transform: translate(-50%, -50%) scale(1.1) rotate(-5deg);
+      }
+    }
+
+    /* ANIMATION 6: Circular Orbit */
+    .orbit-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .delivery-car-6 {
+      position: absolute;
+      width: 180px;
+      height: auto;
+      animation: orbit 5s linear infinite;
+      transform-origin: center center;
+    }
+
+    @keyframes orbit {
+      0% { 
+        transform: rotate(0deg) translateX(100px) rotate(0deg);
+      }
+      100% { 
+        transform: rotate(360deg) translateX(100px) rotate(-360deg);
+      }
+    }
+
+    /* Loading dots animation */
+    .dots {
+      display: inline-block;
+    }
+
+    .dots span {
+      animation: blink 1.4s infinite;
+      opacity: 0;
+    }
+
+    .dots span:nth-child(1) { animation-delay: 0s; }
+    .dots span:nth-child(2) { animation-delay: 0.2s; }
+    .dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes blink {
+      0%, 60%, 100% { opacity: 0; }
+      30% { opacity: 1; }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .delivery-car-1,
+      .delivery-car-2,
+      .delivery-car-5 {
+        width: 200px;
+      }
+      
+      .delivery-car-3 {
+        width: 60px;
+      }
+      
+      .delivery-car-4,
+      .delivery-car-6 {
+        width: 150px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .animation-card h2 {
+        font-size: 20px;
+      }
+    }
